@@ -24,3 +24,13 @@ Install additional packages:
 ```
 wget -O - http://alternate/~florian/knoppix/install.sh | bash
 ```
+
+Leave chroot: `Ctrl + D`
+```
+wget -O - http://alternate/~florian/knoppix/remaster.sh | bash
+```
+
+Remaster:
+```
+wget -O - http://alternate/~florian/knoppix/remaster.sh | bash
+```
