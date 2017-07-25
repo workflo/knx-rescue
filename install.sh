@@ -1,6 +1,7 @@
-#!/bin/bash -e
+#!/bin/bash
 
-apt-get update
+set -e
+
 apt-get autoremove -y
 
 apt-get install -y btrfs-progs btrfs-tools

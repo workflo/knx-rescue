@@ -1,29 +1,30 @@
-#!/bin/bash -e
+#!/bin/bash
 
-PFAD="/media/sda1"
+set -e
+KNOPPIX_PATH="/media/sda1"
 
-mount | grep $PFAD || mount $PFAD
+mount | grep $KNOPPIX_PATH || mount $KNOPPIX_PATH
 
 START=$(date +'%s')
 # Disable screensaver
 xscreensaver-command -exit
 # One sub-directory will be used for the Master-CD
-mkdir -p $PFAD/knx/master
-cd $PFAD/knx
+mkdir -p $KNOPPIX_PATH/knx/master
+cd $KNOPPIX_PATH/knx
 # You will need a swapfile
 dd if=/dev/zero of=swapfile bs=1M count=500
 mkswap swapfile ; swapon swapfile
 # Make a sub-directory for the source
-mkdir -p $PFAD/knx/source/KNOPPIX
+mkdir -p $KNOPPIX_PATH/knx/source/KNOPPIX
 echo "Copy the KNOPPIX files to your source directory."
 echo "This will take a long time!"
-cp -rp /KNOPPIX/* $PFAD/knx/source/KNOPPIX
+cp -rp /KNOPPIX/* $KNOPPIX_PATH/knx/source/KNOPPIX
 # Additionally, copy the files to build the ISO later
-rsync -aH --exclude="KNOPPIX/KNOPPIX*" /mnt-system/* $PFAD/knx/master
+rsync -aH --exclude="KNOPPIX/KNOPPIX*" /mnt-system/* $KNOPPIX_PATH/knx/master
 # gunzip inital RAM-disk
-mkdir -p $PFAD/knx/minirt/minirtdir
-cp $PFAD/knx/master/boot/isolinux/minirt.gz $PFAD/knx/minirt/
-cd $PFAD/knx/minirt/
+mkdir -p $KNOPPIX_PATH/knx/minirt/minirtdir
+cp $KNOPPIX_PATH/knx/master/boot/isolinux/minirt.gz $KNOPPIX_PATH/knx/minirt/
+cd $KNOPPIX_PATH/knx/minirt/
 gunzip minirt.gz
 cd minirtdir
 cpio -imd --no-absolute-filenames < ../minirt
