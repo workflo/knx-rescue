@@ -41,6 +41,7 @@ exec apt-get -y remove \
     amarok \
     amarok-common \
     amarok-utils \
+    aumix \
     bitcoind \
     blinken \
     blobby \

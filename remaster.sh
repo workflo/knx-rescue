@@ -1,6 +1,7 @@
 #! /bin/sh
 
 KNOPPIX_PATH="/media/sda1"
+ISO_FILE=knx-rescue.iso
 
 START=$(date +'%s')
 # Disable screensaver
@@ -23,9 +24,9 @@ cd $KNOPPIX_PATH/knx/master ; find -type f -not -name \
 genisoimage -l -r -J -V "KNOPPIX" \
   -b boot/isolinux/isolinux.bin -no-emul-boot -boot-load-size 4 \
   -boot-info-table -c boot/isolinux/boot.cat \
-  -o $KNOPPIX_PATH/knx/shabacknx.iso $KNOPPIX_PATH/knx/master
+  -o $KNOPPIX_PATH/knx/$ISO_FILE $KNOPPIX_PATH/knx/master
 # Enable screensaver
 su knoppix -c "xscreensaver -nosplash &"
 echo -e "\nFinished! Used time: $(expr $(expr $(date +'%s') - $START) / 60) min. \
   and $(expr $(expr $(date +'%s') - $START) % 60) sec. \
-  \n\nThe new ISO is stored in '$KNOPPIX_PATH/knx/remastered.iso' "
+  \n\nThe new ISO is stored in '$KNOPPIX_PATH/knx/$ISO_FILE' "
