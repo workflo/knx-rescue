@@ -1,0 +1,2 @@
+* phpmyadmin
+    * delete DB
