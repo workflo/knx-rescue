@@ -7,7 +7,7 @@ apt-get autoremove -y
 apt-get install -y \
     btrfs-progs btrfs-tools \
     cmake g++ libssl-dev libz-dev liblua5.1-dev \
-    libgdbm-dev libbz2-dev liblzma-dev libncurses-dev git
+    libgdbm-dev libbz2-dev liblzma-dev git
 
 apt-get clean
 
@@ -18,3 +18,4 @@ cmake .
 make install
 cd
 rm -rf shaback
+
