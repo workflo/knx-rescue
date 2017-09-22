@@ -10,31 +10,31 @@ sudo -s
 
 Copy Knoppix to /media/sda1:
 ```
-wget -O - https://raw.githubusercontent.com/workflo/knx-rescue/master/init.sh | bash
+wget -q -O - https://raw.githubusercontent.com/workflo/knx-rescue/master/init.sh | bash
 ```
 
 chroot into new directory:
 ```
-wget -O - https://raw.githubusercontent.com/workflo/knx-rescue/master/chroot.sh | bash
+wget -q -O - https://raw.githubusercontent.com/workflo/knx-rescue/master/chroot.sh | bash
 chroot /media/sda1/knx/source/KNOPPIX
 ```
 
 Remove unneccesary packages:
 ```
-wget -O - https://raw.githubusercontent.com/workflo/knx-rescue/master/remove.sh | bash
+wget -q -O - https://raw.githubusercontent.com/workflo/knx-rescue/master/remove.sh | bash
 ```
 
 Install additional packages:
 ```
-wget -O - https://raw.githubusercontent.com/workflo/knx-rescue/master/install.sh | bash
+wget -q -O - https://raw.githubusercontent.com/workflo/knx-rescue/master/install.sh | bash
 ```
 
 Leave chroot: `Ctrl + D`
 ```
-wget -O - https://raw.githubusercontent.com/workflo/knx-rescue/master/exit.sh | bash
+wget -q -O - https://raw.githubusercontent.com/workflo/knx-rescue/master/exit.sh | bash
 ```
 
 Remaster:
 ```
-wget -O - https://raw.githubusercontent.com/workflo/knx-rescue/master/remaster.sh | bash
+wget -q -O - https://raw.githubusercontent.com/workflo/knx-rescue/master/remaster.sh | bash
 ```
