@@ -6,6 +6,12 @@ Boot from downloaded ISO image.
 After Knoppix has finished booting up, open Terminal and become root:
 ```
 sudo -s
+
+# Create a primary partition `1`:
+fdisk /dev/sda
+
+# Create ext4 file system:
+mkfs.ext4 /dev/sda1
 ```
 
 Copy Knoppix to /media/sda1:
